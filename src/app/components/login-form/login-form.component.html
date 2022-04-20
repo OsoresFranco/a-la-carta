@@ -1,0 +1,27 @@
+<div class="form-container">
+    <div class="card-container">
+        <img class="logo-img" src="../../../assets/images/logo.svg"/>
+        <form class="login-form" method="post">
+            <label for="email"></label>
+            <input
+            type ="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            [(ngModel)]="email"
+            required="required"
+            />
+
+            <label for="password"></label>
+            <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            [(ngModel)]="password"
+            required="required"
+            />
+            <button type="submit" (click)="login()">Ingresar</button>
+        </form>
+    </div>
+</div>
