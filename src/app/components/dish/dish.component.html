@@ -1,1 +1,14 @@
-<p>dish works!</p>
+<section class="dish-container">
+    <img class="dish-img" src="{{dish.image}}" alt="spaghetti dish"/>
+    <h3 class="dish-title">{{dish.title}}</h3>
+    <div class="dish-info">
+        <p>Health Score: {{dish.healthScore}}</p>
+        <p>Price Per Serving: {{dish.pricePerServing}}</p>
+        <p>Max Ready Time: {{dish.readyInMinutes}} minutes</p>
+        <p>Vegetariano: {{dish.vegan}}</p>
+    </div>  
+    <div class="dish-actions">
+        <img src="../../../assets/icons/info.svg"  alt="info action"/>
+        <img src="../../../assets/icons/add.svg"  alt="add action"/>
+    </div>
+</section>

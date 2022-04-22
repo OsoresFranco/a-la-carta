@@ -16,6 +16,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { NetworkInterceptor } from './interceptors/network.interceptor';
 import { DishComponent } from './components/dish/dish.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
 
 
 
@@ -24,7 +25,8 @@ import { DishComponent } from './components/dish/dish.component';
     AppComponent,
     NavbarComponent,
     LoginFormComponent,
-    DishComponent
+    DishComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,
