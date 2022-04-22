@@ -6,7 +6,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -14,6 +15,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { NetworkInterceptor } from './interceptors/network.interceptor';
+import { DishComponent } from './components/dish/dish.component';
 
 
 
@@ -21,7 +23,8 @@ import { NetworkInterceptor } from './interceptors/network.interceptor';
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    DishComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { NetworkInterceptor } from './interceptors/network.interceptor';
     BrowserAnimationsModule,
     MatFormFieldModule,
     SweetAlert2Module,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ReactiveFormsModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

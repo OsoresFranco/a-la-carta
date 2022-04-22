@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginServiceService } from 'src/app/services/login-service.service';
 import Swal from 'sweetalert2'
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
@@ -8,13 +9,24 @@ import Swal from 'sweetalert2'
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  email:string ='';
-  password:string ='';
 
-  constructor(public loginService:LoginServiceService) { }
+  ngOnInit(): void {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]]
+    })
+  }
+
+  loginForm = new FormGroup({});
+
+  constructor(public loginService:LoginServiceService, private fb:FormBuilder) { }
 
   login(){
-    let user:any = {email: this.email, password: this.password};
+    let user = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password,
+    }
+
     this.loginService.login(user).subscribe(data =>{
       localStorage.setItem('user', JSON.stringify(data))}
       ,error =>{
@@ -25,12 +37,5 @@ export class LoginFormComponent implements OnInit {
           confirmButtonColor:'#0E6200'
         })
       }
-    )
-    
-    
-  }
-
-  ngOnInit(): void {
-  }
-
+    )}
 }

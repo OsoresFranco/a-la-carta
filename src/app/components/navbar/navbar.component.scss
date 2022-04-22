@@ -1,0 +1,42 @@
+.navBar{
+    background-color: #0E6200;
+    height: 4rem;
+
+    position: sticky;
+    top: 0px;
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav-logo{
+    max-width: 90px;
+    margin: 8px;
+}
+
+a:link {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    margin: 10px;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    margin: 10px;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: rgb(117, 45, 250);
+    font-weight: 600;
+    margin: 10px;
+  }

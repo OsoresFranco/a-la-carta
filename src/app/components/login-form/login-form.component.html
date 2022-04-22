@@ -2,16 +2,18 @@
 
     <div class="card-container">
         <img class="logo-img" src="../../../assets/images/logo.svg"/>
-        <form class="login-form" method="post">
+        <form class="login-form" method="post" [formGroup]="loginForm" (ngSubmit)="login()">
             <label for="email"></label>
             <input
             type ="email"
             name="email"
             id="email"
             placeholder="Email"
-            [(ngModel)]="email"
-            required="required"
+            formControlName="email"
             />
+            <span class="errorMessage" *ngIf="loginForm.get('email')!.invalid && (loginForm.get('email')!.dirty || loginForm.get('email')!.touched)">
+                Por favor ingresa un email válido
+            </span>
 
             <label for="password"></label>
             <input
@@ -19,10 +21,13 @@
             name="password"
             id="password"
             placeholder="Password"
-            [(ngModel)]="password"
+            formControlName="password"
             required="required"
             />
-            <button type="submit" (click)="login()">Ingresar</button>
+            <span class="errorMessage" *ngIf="loginForm.get('password')!.invalid && (loginForm.get('email')!.dirty || loginForm.get('password')?.touched)">
+                Por favor ingresa tu contraseña
+            </span>
+            <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
         </form>
     </div>
 </div>

@@ -8,6 +8,7 @@
     margin: 10px;
 }
 .login-form > button{
+    transition: all .2s ease-in-out;
     width: 99px;
     height: 40px;
     background: #0E6200;
@@ -16,6 +17,18 @@
     font-family: 'Poppins', sans-serif;
     align-self: center;
     margin: 10px;
+}
+
+.login-form > button:disabled{
+    width: 99px;
+    height: 40px;
+    background: #4d4d4d;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    align-self: center;
+    margin: 10px;
+    transform: scale(0.8);
 }
 
 .card-container{
@@ -58,4 +71,11 @@ input{
 
 .logo-img{
     margin: 10px;
+}
+
+.errorMessage{
+    margin-top: 0px;
+    color: #f7c9c9;
+    font-weight: 800;
+    text-align: center;
 }
