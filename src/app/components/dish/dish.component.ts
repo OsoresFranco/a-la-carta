@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataShareService } from 'src/app/services/data-share.service';
+import { autoCompleteDish } from 'src/app/models/autocompleteInterface';
 
 @Component({
   selector: 'app-dish',
@@ -6,20 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dish.component.scss']
 })
 export class DishComponent implements OnInit {
-  dish ={
-    vegan: false,
-    healthScore: 95,
-    pricePerServing: 466.75,
-    id: 1096014,
-    title: "Spaghetti Squash Boats",
-    readyInMinutes: 220,
-    sourceUrl: "https://www.foodista.com/recipe/R3FD7GM8/spaghetti-squash-boats",
-    image: "https://spoonacular.com/recipeImages/1096014-312x231.jpg",
-  }
+  message:any[];
 
-  constructor() { }
+  dishes:any[];
+  
+
+  constructor(private data:DataShareService) { }
 
   ngOnInit(): void {
+    this.data.currentMessage.subscribe(message => this.message = message)
   }
-
+  showme(){
+    console.log(this.dishes)
+  }
 }

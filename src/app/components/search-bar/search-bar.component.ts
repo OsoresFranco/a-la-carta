@@ -5,6 +5,8 @@ import { debounceTime, Observable, map, startWith} from 'rxjs';
 import { FormControl } from '@angular/forms';
 import { ViewChild } from '@angular/core';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
+import { DataShareService } from 'src/app/services/data-share.service';
+import { autoCompleteDish } from 'src/app/models/autocompleteInterface';
 
 @Component({
   selector: 'app-search-bar',
@@ -12,6 +14,8 @@ import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit {
+
+
 
   @ViewChild(MatAutocompleteTrigger) autocomplete: MatAutocompleteTrigger;
 
@@ -32,6 +36,7 @@ export class SearchBarComponent implements OnInit {
   }
   //----------------------------------------------
   streets: string[] = [];
+  dishes:autoCompleteDish;
 
   checking(){
     this.control.value ? null : this.autocomplete.closePanel(); 
@@ -58,21 +63,28 @@ export class SearchBarComponent implements OnInit {
       startWith(''),
       map(value => this._filter(value)),
     );
+
+    this.data.currentMessage.subscribe(message => this.message = this.dishes);
   }
   searchForm = new FormGroup({});
   
 
 
 
-  constructor(private fb:FormBuilder, private searchDish:SearchDishService) { }
+  constructor(private fb:FormBuilder, private searchDish:SearchDishService, private data:DataShareService) { }
+  message:autoCompleteDish;
 
+  changeData(){
+    this.data.changeMessage(this.dishes.results);
+    console.log(this.dishes.results)
+  }
 
   search(){
     let query = this.control.value;
     let vegan = this.searchForm.value.vegan;
 
     this.searchDish.search(query, vegan).subscribe(data =>{
-      console.log(data)
+      this.dishes = data;
     })
   }
 }
