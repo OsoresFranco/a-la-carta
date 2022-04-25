@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input'
 
 
 
@@ -38,6 +40,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     SweetAlert2Module,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatInputModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
