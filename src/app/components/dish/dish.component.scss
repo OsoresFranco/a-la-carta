@@ -1,5 +1,5 @@
 .dish-container{
-    max-height: 20rem;
+    max-height: 23rem;
     max-width: 17.25rem;
     background-color: #143109;
     border-radius: 0 0 15px 15px;
@@ -16,6 +16,7 @@
 }
 
 .dish-title{
+    text-align: center;
     color: #E3B505;
     font-family: 'Josefin Sans';
     font-weight: 700;
@@ -41,4 +42,9 @@
     display: flex;
     justify-content: space-between;
     margin: 15px;
+}
+
+.card-container{
+    display: flex;
+    flex-wrap: wrap;
 }

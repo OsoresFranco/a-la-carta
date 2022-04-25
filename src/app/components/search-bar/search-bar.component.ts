@@ -76,7 +76,6 @@ export class SearchBarComponent implements OnInit {
 
   changeData(){
     this.data.changeMessage(this.dishes.results);
-    console.log(this.dishes.results)
   }
 
   search(){
@@ -85,6 +84,7 @@ export class SearchBarComponent implements OnInit {
 
     this.searchDish.search(query, vegan).subscribe(data =>{
       this.dishes = data;
+      this.changeData();
     })
   }
 }

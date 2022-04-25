@@ -1,4 +1,4 @@
-<div *ngIf="this.message">
+<div *ngIf="this.message" class="card-container">
     <div *ngFor="let dish of message ">
         <section class="dish-container">
             <img class="dish-img" src={{dish.image}} alt="spaghetti dish"/>
@@ -10,8 +10,8 @@
                 <p>Vegetariano: {{dish.vegan}}</p>
             </div>  
             <div class="dish-actions">
-                <img src="../../../assets/icons/info.svg"  alt="info action"/>
-                <img src="../../../assets/icons/add.svg"  alt="add action"/>
+                <a><img src="../../../assets/icons/info.svg"  alt="info action"/></a>
+                <a><img src="../../../assets/icons/add.svg"  alt="add action"/></a>
             </div>
         </section>
     </div>
