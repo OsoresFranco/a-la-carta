@@ -1,4 +1,25 @@
 span{
     font-family: 'Dancing Script', cursive;
     color: green;
+    font-size: xx-large;
+    font-weight: 400;
+}
+
+.search-bar{
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.searchButton{
+    height: 2rem;
+    width: auto;
+    background: #0E6200;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    border: none;
+    margin-left: 10px;
 }

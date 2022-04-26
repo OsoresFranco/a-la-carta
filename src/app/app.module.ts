@@ -10,6 +10,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input'
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -19,6 +20,8 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { NetworkInterceptor } from './interceptors/network.interceptor';
 import { DishComponent } from './components/dish/dish.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { ModalDishComponent } from './components/modal-dish/modal-dish.component';
+import { MyMenuComponent } from './components/my-menu/my-menu.component';
 
 
 
@@ -28,7 +31,9 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     NavbarComponent,
     LoginFormComponent,
     DishComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    ModalDishComponent,
+    MyMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
     MatProgressSpinnerModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
-    MatInputModule
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

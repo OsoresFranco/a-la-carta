@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataShareService } from 'src/app/services/data-share.service';
-import { autoCompleteDish } from 'src/app/models/autocompleteInterface';
+import {MatDialog} from '@angular/material/dialog';
+import { ModalDishComponent } from '../modal-dish/modal-dish.component';
 
 @Component({
   selector: 'app-dish',
@@ -8,17 +9,21 @@ import { autoCompleteDish } from 'src/app/models/autocompleteInterface';
   styleUrls: ['./dish.component.scss']
 })
 export class DishComponent implements OnInit {
+
+  constructor(private data:DataShareService, public dialog: MatDialog) { }
+
+
   message:any[];
 
-  dishes:any[];
   
+  showModalDish(dish:any){
+    this.data.changeModal(dish)
+    this.dialog.open(ModalDishComponent);
+  }
 
-  constructor(private data:DataShareService) { }
+
 
   ngOnInit(): void {
     this.data.currentMessage.subscribe(message => this.message = message)
-  }
-  showme(){
-    console.log(this.dishes)
   }
 }

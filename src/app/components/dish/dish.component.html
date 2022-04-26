@@ -1,5 +1,5 @@
 <div *ngIf="this.message" class="card-container">
-    <div *ngFor="let dish of message ">
+    <div *ngFor="let dish of message">
         <section class="dish-container">
             <img class="dish-img" src={{dish.image}} alt="spaghetti dish"/>
             <h3 class="dish-title">{{dish.title}}</h3>
@@ -10,7 +10,7 @@
                 <p>Vegetariano: {{dish.vegan}}</p>
             </div>  
             <div class="dish-actions">
-                <a><img src="../../../assets/icons/info.svg"  alt="info action"/></a>
+                <a (click)="showModalDish(this.dish)"><img src="../../../assets/icons/info.svg"  alt="info action"/></a>
                 <a><img src="../../../assets/icons/add.svg"  alt="add action"/></a>
             </div>
         </section>

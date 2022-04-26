@@ -47,7 +47,6 @@ export class SearchBarComponent implements OnInit {
     this.searchDish.autoCompleteSearch(query).subscribe(data =>{
       data.map((item:any) => this.streets.push(item.title))
     })
-    console.log(this.streets)
   }
 
   control = new FormControl();
@@ -80,7 +79,7 @@ export class SearchBarComponent implements OnInit {
 
   search(){
     let query = this.control.value;
-    let vegan = this.searchForm.value.vegan;
+    let vegan = this.searchForm.value.vegan === true ? 'vegan' : '';
 
     this.searchDish.search(query, vegan).subscribe(data =>{
       this.dishes = data;

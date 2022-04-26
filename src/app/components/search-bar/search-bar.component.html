@@ -1,6 +1,6 @@
 <div class="search-bar">
     <form class="login-form" method="post" [formGroup]="searchForm" (ngSubmit)="search()">
-        <span>I'd like to eat </span>
+         <span>I'd like to eat </span>
             <input
             (keyup)="checking()"
             type ="text"
@@ -12,13 +12,13 @@
                     {{street}}
                 </mat-option>
             </mat-autocomplete>
-        <span> And I'm Vegan </span>
-        <input
-        type ="checkbox"
-        name="checkbox"
-        id="checkbox"
-        formControlName="vegan"
-        />
+            <span> And I'm Vegan </span>
+            <input
+            type ="checkbox"
+            name="checkbox"
+            id="checkbox"
+            formControlName="vegan"
+            />
     </form>
-    <button (click)="search()">Pedido Api</button>
+    <button class="searchButton" (click)="search()">Pedido Api</button>
 </div>

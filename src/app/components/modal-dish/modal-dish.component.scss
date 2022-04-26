@@ -1,0 +1,38 @@
+.dish-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 35rem;
+    max-height: 30rem;
+    background-color: beige;
+}
+
+.dish-img{
+    max-width: 25rem;
+    height: auto;
+    border-radius: 40px;
+}
+
+.dish-title{
+    font-family: 'Dancing Script', cursive;
+    color: green;
+    text-align: center;
+    font-size:xx-large;
+    margin: 10px;
+}
+
+.info{
+    color: rgb(236, 40, 105);
+    font-weight: 800;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.dish-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+p{
+    font-family: 'Josefin Sans', sans-serif;
+}
