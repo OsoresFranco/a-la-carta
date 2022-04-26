@@ -7,9 +7,11 @@ import { BehaviorSubject } from 'rxjs';
 export class DataShareService {
    private messageSource = new BehaviorSubject<any>([]);
    private dishSource = new BehaviorSubject<any>([]);
+   private myMenuSource = new BehaviorSubject<any>([]);
 
    currentMessage = this.messageSource.asObservable();
    currentDish = this.dishSource.asObservable();
+   currentMyMenu = this.myMenuSource.asObservable();
 
 
   constructor() { }
@@ -20,5 +22,9 @@ export class DataShareService {
 
   changeModal(id:any){
     this.dishSource.next(id);
+  }
+
+  changeMyMenu(dish:any){
+    this.myMenuSource.next(dish);
   }
 }

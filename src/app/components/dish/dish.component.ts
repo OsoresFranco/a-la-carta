@@ -14,6 +14,9 @@ export class DishComponent implements OnInit {
 
 
   message:any[];
+  myVeganMenu:any[]=[];
+  myRegularMenu:any[]=[];
+  myMenu:any[]=[];
 
   
   showModalDish(dish:any){
@@ -21,9 +24,27 @@ export class DishComponent implements OnInit {
     this.dialog.open(ModalDishComponent);
   }
 
-
+  addDish(dish:any){
+    if(dish.vegan === true){
+      if(this.myVeganMenu.length > 1){
+        alert('Ya hay 2 platos veganos')
+      }else{
+        this.myVeganMenu.push(dish);
+        this.myMenu.push(dish)
+      }
+    }
+    if(dish.vegan === false){
+      if(this.myRegularMenu.length > 1){
+        alert('Ya hay 2 platos Regulares')
+      }else{
+        this.myRegularMenu.push(dish);
+        this.myMenu.push(dish)
+      }
+    }
+  }
 
   ngOnInit(): void {
-    this.data.currentMessage.subscribe(message => this.message = message)
+    this.data.currentMessage.subscribe(message => this.message = message);
+    this.data.currentMyMenu.subscribe(myMenu => this.myMenu = myMenu)
   }
 }

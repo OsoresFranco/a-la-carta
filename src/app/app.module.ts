@@ -22,6 +22,7 @@ import { DishComponent } from './components/dish/dish.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ModalDishComponent } from './components/modal-dish/modal-dish.component';
 import { MyMenuComponent } from './components/my-menu/my-menu.component';
+import { MyMenuStatsComponent } from './components/my-menu-stats/my-menu-stats.component';
 
 
 
@@ -33,7 +34,8 @@ import { MyMenuComponent } from './components/my-menu/my-menu.component';
     DishComponent,
     SearchBarComponent,
     ModalDishComponent,
-    MyMenuComponent
+    MyMenuComponent,
+    MyMenuStatsComponent
   ],
   imports: [
     BrowserModule,
