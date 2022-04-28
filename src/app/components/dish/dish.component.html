@@ -16,3 +16,9 @@
         </section>
     </div>
 </div>
+<br>
+<mat-paginator [length]="this.message.length"
+              [pageSize]="2"
+              [pageSizeOptions]="[1,2,3,4,5]"
+              aria-label="Select page">
+</mat-paginator>
