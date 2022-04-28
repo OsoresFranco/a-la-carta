@@ -1,0 +1,33 @@
+img{
+    filter: invert(16%) sepia(56%) saturate(7222%) hue-rotate(341deg) brightness(88%) contrast(94%);
+    width: 5rem;
+    height: auto;
+}
+
+.stat-container{
+    display: flex;
+    max-width: 30%;
+    position: relative;
+    left: 33%;
+    margin: 20px;
+    background-color: antiquewhite;
+    border-radius: 20px;
+
+    justify-content: space-around;
+}
+
+.info-container{
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    margin: 10px;
+}
+
+.info-container > p{
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 900;
+    font-size: medium;
+    margin: 5px;
+}

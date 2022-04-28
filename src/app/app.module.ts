@@ -11,6 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input'
 import { MatDialogModule } from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
@@ -23,6 +24,11 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { ModalDishComponent } from './components/modal-dish/modal-dish.component';
 import { MyMenuComponent } from './components/my-menu/my-menu.component';
 import { MyMenuStatsComponent } from './components/my-menu-stats/my-menu-stats.component';
+import { MyMenuPageComponent } from './pages/my-menu-page/my-menu-page.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginSnackbarComponent } from './components/login-snackbar/login-snackbar.component';
+import { DishAddSnackbarComponent } from './components/dish-add-snackbar/dish-add-snackbar.component';
+import { DishDeleteSnackbarComponent } from './components/dish-delete-snackbar/dish-delete-snackbar.component';
 
 
 
@@ -35,7 +41,12 @@ import { MyMenuStatsComponent } from './components/my-menu-stats/my-menu-stats.c
     SearchBarComponent,
     ModalDishComponent,
     MyMenuComponent,
-    MyMenuStatsComponent
+    MyMenuStatsComponent,
+    MyMenuPageComponent,
+    HomeComponent,
+    LoginSnackbarComponent,
+    DishAddSnackbarComponent,
+    DishDeleteSnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +60,8 @@ import { MyMenuStatsComponent } from './components/my-menu-stats/my-menu-stats.c
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatInputModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

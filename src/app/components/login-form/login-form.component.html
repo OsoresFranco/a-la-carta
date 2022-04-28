@@ -27,7 +27,7 @@
             <span class="errorMessage" *ngIf="loginForm.get('password')!.invalid && (loginForm.get('email')!.dirty || loginForm.get('password')?.touched)">
                 Por favor ingresa tu contraseña
             </span>
-            <button type="submit" [disabled]="loginForm.invalid">Ingresar</button>
+            <button type="submit" [disabled]="loginForm.invalid" routerLink="/home">Ingresar</button>
         </form>
     </div>
 </div>
