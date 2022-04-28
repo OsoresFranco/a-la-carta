@@ -30,6 +30,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginSnackbarComponent } from './components/login-snackbar/login-snackbar.component';
 import { DishAddSnackbarComponent } from './components/dish-add-snackbar/dish-add-snackbar.component';
 import { DishDeleteSnackbarComponent } from './components/dish-delete-snackbar/dish-delete-snackbar.component';
+import { PaginatePipe } from './pipes/paginate.pipe';
 
 
 
@@ -47,7 +48,8 @@ import { DishDeleteSnackbarComponent } from './components/dish-delete-snackbar/d
     HomeComponent,
     LoginSnackbarComponent,
     DishAddSnackbarComponent,
-    DishDeleteSnackbarComponent
+    DishDeleteSnackbarComponent,
+    PaginatePipe
   ],
   imports: [
     BrowserModule,

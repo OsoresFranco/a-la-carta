@@ -1,7 +1,7 @@
 <div *ngIf="this.message" class="card-container">
-    <div *ngFor="let dish of message">
+    <div *ngFor="let dish of message | paginate:page_size:page_number">
         <section class="dish-container">
-            <img class="dish-img" src={{dish.image}} alt="spaghetti dish"/>
+            <img class="dish-img" src={{dish.image}} alt="CAMBIAR ESTO"/>
             <h3 class="dish-title">{{dish.title}}</h3>
             <div class="dish-info">
                 <p>Health Score: {{dish.healthScore}}</p>
@@ -16,9 +16,9 @@
         </section>
     </div>
 </div>
-<br>
-<mat-paginator [length]="this.message.length"
-              [pageSize]="2"
-              [pageSizeOptions]="[1,2,3,4,5]"
-              aria-label="Select page">
+
+<mat-paginator [length]="message.length"
+[pageSize]="page_size"
+[pageSizeOptions]="[1,2,3,4,5]"
+(page)="handlePage($event)">
 </mat-paginator>

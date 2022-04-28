@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { ModalDishComponent } from '../modal-dish/modal-dish.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { DishAddSnackbarComponent } from '../dish-add-snackbar/dish-add-snackbar.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-dish',
@@ -11,11 +12,18 @@ import { DishAddSnackbarComponent } from '../dish-add-snackbar/dish-add-snackbar
   styleUrls: ['./dish.component.scss']
 })
 export class DishComponent implements OnInit {
+  page_size:number = 2;
+  page_number:number = 1;
+
+  handlePage(e:PageEvent){
+    this.page_size = e.pageSize;
+    this.page_number = e.pageIndex + 1;
+  }
 
   constructor(private data:DataShareService, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
 
 
-  message:any[];
+  message:any[]=[];
   myVeganMenu:any[]=[];
   myRegularMenu:any[]=[];
 
