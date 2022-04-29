@@ -5,23 +5,24 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class TokenAuthGuard implements CanActivate {
+export class LoggedGuard implements CanActivate {
 
   constructor(private router:Router){}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const token = localStorage.getItem('user');
+      const token = localStorage.getItem('user');
 
-    if(token){
-      return true;
-    }
-    else{
-      this.router.navigate(['/']);
-      return false;
-    }
-    
+      if(token){
+        this.router.navigate(['/home']);
+        return false;
+      }
+      else{
+        
+        return true;
+      }
+  
   }
   
 }

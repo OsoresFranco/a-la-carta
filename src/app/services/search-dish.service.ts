@@ -16,6 +16,6 @@ export class SearchDishService {
 
 
   search(query:string, vegan:string): Observable<any> {
-    return this.http.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=13033a3723394081bd14009c5ab26a85&addRecipeInformation=true&query=${query}&diet=${vegan}&number=5`);
+    return this.http.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=13033a3723394081bd14009c5ab26a85&addRecipeInformation=true&query=${query}&diet=${vegan}&number=20`);
   }
 }

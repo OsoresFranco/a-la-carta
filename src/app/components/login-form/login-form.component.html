@@ -1,33 +1,54 @@
 <div class="form-container">
+  <div class="card-container">
+    <img class="logo-img" src="../../../assets/images/logo.svg" />
+    <video playsinline autoplay muted loop id="bgvid">
+        <source src="../../../assets/Video/video.mp4" type="video/mp4">
+    </video>
+    <form
+      class="login-form"
+      method="post"
+      [formGroup]="loginForm"
+      (ngSubmit)="login()"
+    >
+      <label for="email"></label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+      <span
+        class="errorMessage"
+        *ngIf="
+          loginForm.get('email')!.invalid &&
+          (loginForm.get('email')!.dirty || loginForm.get('email')!.touched)
+        "
+      >
+        Por favor ingresa un email válido
+      </span>
 
-    <div class="card-container">
-        <img class="logo-img" src="../../../assets/images/logo.svg"/>
-        <form class="login-form" method="post" [formGroup]="loginForm" (ngSubmit)="login()">
-            <label for="email"></label>
-            <input
-            type ="email"
-            name="email"
-            id="email"
-            placeholder="Email"
-            formControlName="email"
-            />
-            <span class="errorMessage" *ngIf="loginForm.get('email')!.invalid && (loginForm.get('email')!.dirty || loginForm.get('email')!.touched)">
-                Por favor ingresa un email válido
-            </span>
-
-            <label for="password"></label>
-            <input
-            type="password"
-            name="password"
-            id="password"
-            placeholder="Password"
-            formControlName="password"
-            required="required"
-            />
-            <span class="errorMessage" *ngIf="loginForm.get('password')!.invalid && (loginForm.get('email')!.dirty || loginForm.get('password')?.touched)">
-                Por favor ingresa tu contraseña
-            </span>
-            <button type="submit" [disabled]="loginForm.invalid" routerLink="/home">Ingresar</button>
-        </form>
-    </div>
+      <label for="password"></label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+        formControlName="password"
+        required="required"
+      />
+      <span
+        class="errorMessage"
+        *ngIf="
+          loginForm.get('password')!.invalid &&
+          (loginForm.get('email')!.dirty || loginForm.get('password')?.touched)
+        "
+      >
+        Por favor ingresa tu contraseña
+      </span>
+      <button type="submit" [disabled]="loginForm.invalid" routerLink="/home">
+        Ingresar
+      </button>
+    </form>
+  </div>
 </div>

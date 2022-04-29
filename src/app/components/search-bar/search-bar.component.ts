@@ -7,6 +7,7 @@ import { ViewChild } from '@angular/core';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 import { DataShareService } from 'src/app/services/data-share.service';
 import { autoCompleteDish } from 'src/app/models/autocompleteInterface';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-search-bar',
@@ -14,6 +15,7 @@ import { autoCompleteDish } from 'src/app/models/autocompleteInterface';
   styleUrls: ['./search-bar.component.scss'],
 })
 export class SearchBarComponent implements OnInit {
+
   @ViewChild(MatAutocompleteTrigger) autocomplete: MatAutocompleteTrigger;
 
   filteredStreets: Observable<string[]>;
@@ -21,12 +23,15 @@ export class SearchBarComponent implements OnInit {
   private _filter(value: string): string[] {
     if (value.length > 2) {
       this.searchDish.autoCompleteSearch(value).subscribe((data) => {
-        data.map((item: any) => this.streets.push(item.title));
-      });
+        data.map((item: any) => this.dishList.push(item.title));
+      }, error => {
+        Swal.fire('Error al obtener datos')
+      }
+      );
     }
     const filterValue = this._normalizeValue(value);
-    return this.streets.filter((street) =>
-      this._normalizeValue(street).includes(filterValue)
+    return this.dishList.filter((dish) =>
+      this._normalizeValue(dish).includes(filterValue)
     );
   }
 
@@ -34,7 +39,7 @@ export class SearchBarComponent implements OnInit {
     return value.toLowerCase().replace(/\s/g, '');
   }
   //----------------------------------------------
-  streets: string[] = [];
+  dishList: string[] = [];
   dishes: autoCompleteDish;
 
   checking() {
@@ -44,7 +49,10 @@ export class SearchBarComponent implements OnInit {
   apipedido(query: string) {
     query = this.control.value;
     this.searchDish.autoCompleteSearch(query).subscribe((data) => {
-      data.map((item: any) => this.streets.push(item.title));
+      data.map((item: any) => this.dishList.push(item.title));
+    },
+      error => {
+      Swal.fire('Error al obtener datos')
     });
   }
 

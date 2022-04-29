@@ -1,24 +1,33 @@
-<div *ngIf="this.message" class="card-container">
-    <div *ngFor="let dish of message | paginate:page_size:page_number">
-        <section class="dish-container">
-            <img class="dish-img" src={{dish.image}} alt="CAMBIAR ESTO"/>
-            <h3 class="dish-title">{{dish.title}}</h3>
-            <div class="dish-info">
-                <p>Health Score: {{dish.healthScore}}</p>
-                <p>Price Per Serving: {{dish.pricePerServing}}</p>
-                <p>Max Ready Time: {{dish.readyInMinutes}} minutes</p>
-                <p>Vegetariano: {{dish.vegan}}</p>
-            </div>  
-            <div class="dish-actions">
-                <a (click)="showModalDish(this.dish)"><img src="../../../assets/icons/info.svg"  alt="info action"/></a>
-                <a (click)="addDish(this.dish)"><img src="../../../assets/icons/add.svg"  alt="add action"/></a>
-            </div>
-        </section>
+<div *ngIf="this.message.length > 0; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <div class="card-container">
+        <div *ngFor="let dish of message | paginate:page_size:page_number">
+            <section class="dish-container">
+                <img (click)="showModalDish(this.dish)" class="dish-img" src={{dish.image}} alt={{dish.title}}/>
+                <h3 class="dish-title">{{dish.title}}</h3>
+                <div class="dish-info">
+                    <p>Health Score: {{dish.healthScore}}</p>
+                    <p>Price Per Serving: {{dish.pricePerServing | price}}</p>
+                    <p>Max Ready Time: {{dish.readyInMinutes}} minutes</p>
+                    <p>Vegetariano: {{dish.vegan}}</p>
+                </div>  
+                <div class="dish-actions">
+                    <button class="add-button" (click)="addDish(this.dish)">Agregar</button>
+                </div>
+            </section>
+        </div>
     </div>
+</ng-template>
+<ng-template #elseBlock>
+    <h2 class="no-dish">Look for a dish to start ordering</h2>
+</ng-template>
+
+<div class="paginator" *ngIf="this.message.length > 0">
+    <mat-paginator
+    [length]="message.length"
+    [pageSize]="page_size"
+    (page)="handlePage($event)">
+    </mat-paginator>
 </div>
 
-<mat-paginator [length]="message.length"
-[pageSize]="page_size"
-[pageSizeOptions]="[1,2,3,4,5]"
-(page)="handlePage($event)">
-</mat-paginator>
+

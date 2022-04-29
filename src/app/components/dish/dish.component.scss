@@ -1,8 +1,5 @@
-
-
-
 .dish-container{
-    max-height: 23rem;
+    max-height: auto;
     max-width: 17.25rem;
     background-color: #143109;
     border-radius: 0 0 15px 15px;
@@ -43,7 +40,7 @@
   .dish-actions{
     width: 30%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 15px;
   }
   
@@ -51,5 +48,29 @@
     display: flex;
     flex-wrap: wrap;
   }
-  
+
+  .add-button{
+    height: 2rem;
+    width: auto;
+    background: #0E6200;
+    border-radius: 10px;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    border: none;
+    margin-left: 10px;
+  }
+
+.paginator{
+  display: flex;
+  justify-content: center;
+}
+
+.no-dish{
+  margin: 100px;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  color: green;
+  font-size: xx-large;
+  font-weight: 800;
+}
   

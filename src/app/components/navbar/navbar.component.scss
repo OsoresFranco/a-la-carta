@@ -1,43 +1,54 @@
-.navBar{
-    background-color: #0E6200;
-    height: 4rem;
+.navBar {
+  background-color: #0e6200;
+  height: 4rem;
 
-    position: sticky;
-    top: 0px;
-    margin: 0px;
-    padding: 0px;
+  position: sticky;
+  top: 0px;
+  margin: 0px;
+  padding: 0px;
 
-    display: flex;
-    flex-direction: row;
-    flex: 1 1 auto;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 5;
-
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
 }
 
-.nav-logo{
-    max-width: 90px;
-    margin: 8px;
+.nav-logo {
+  max-width: 90px;
+  margin: 8px;
 }
 
 a:link {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    margin: 10px;
-  }
-  
-  a:visited {
-    text-decoration: none;
-    color: white;
-    font-weight: 600;
-    margin: 10px;
-  }
-  
-  a:hover {
-    text-decoration: none;
-    color: rgb(117, 45, 250);
-    font-weight: 600;
-    margin: 10px;
-  }
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  margin: 10px;
+}
+
+a:visited {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  margin: 10px;
+}
+
+a:hover {
+  text-decoration: none;
+  color: rgb(117, 45, 250);
+  font-weight: 600;
+  margin: 10px;
+}
+
+a > img {
+  max-height: 30px;
+  width: auto;
+}
+
+.links{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 20px;
+}

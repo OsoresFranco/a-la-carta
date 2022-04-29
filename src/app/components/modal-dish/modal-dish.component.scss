@@ -1,15 +1,16 @@
 .dish-container{
     display: flex;
     flex-direction: column;
-    max-width: 35rem;
     max-height: 30rem;
-    background-color: beige;
+    align-items: center;
+    width: 100%;
 }
 
 .dish-img{
-    max-width: 25rem;
-    height: auto;
+    max-width: 20rem;
+    max-height: 20rem;
     border-radius: 40px;
+    justify-content: center;
 }
 
 .dish-title{

@@ -1,9 +1,13 @@
 <nav class="navBar">
-    <img class="nav-logo" src="../../../assets/images/logo.svg"/>
+    <img routerLink="/home" class="nav-logo" src="../../../assets/images/logo.svg"/>
     <div class="divisor"></div>
     <div class="links">
         <a routerLink="/home">Home</a>
         <a routerLink="/mymenu">My Menu</a>
+        <a mat-button [matMenuTriggerFor]="menu"><img src="../../../assets/icons/user.svg"/></a>
+        <mat-menu #menu="matMenu">
+            <button (click)="logOut()" mat-menu-item>Log Out</button>
+          </mat-menu>
     </div>
 </nav>
 

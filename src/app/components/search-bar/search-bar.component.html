@@ -1,24 +1,42 @@
 <div class="search-bar">
-    <form class="login-form" method="post" [formGroup]="searchForm" (ngSubmit)="search()">
-         <span>I'd like to eat </span>
-            <input
-            (keyup)="checking()"
-            type ="text"
-            matInput
-            [formControl]="control"
-            [matAutocomplete]="auto" />
-            <mat-autocomplete #auto="matAutocomplete">
-                <mat-option #thenBlock  *ngFor="let street of filteredStreets | async" [value]="street">
-                    {{street}}
-                </mat-option>
-            </mat-autocomplete>
-            <span> And I'm Vegan </span>
-            <input
-            type ="checkbox"
-            name="checkbox"
-            id="checkbox"
-            formControlName="vegan"
-            />
-    </form>
-    <button class="searchButton" (click)="search()">Buscar</button>
+  <form
+    class="login-form"
+    method="post"
+    [formGroup]="searchForm"
+    (ngSubmit)="search()"
+  >
+    <div class="search-title">
+      <span class="form-item">I'd like to eat </span>
+
+      <input
+        class="form-item"
+        (keyup)="checking()"
+        type="text"
+        [formControl]="control"
+        [matAutocomplete]="auto"
+      />
+
+      <span class="form-item"> And I'm Vegan </span>
+
+      <input
+       class="form-item"
+        type="checkbox"
+        name="checkbox"
+        id="checkbox"
+        formControlName="vegan"
+      />
+      <button class="searchButton form-item" (click)="search()">Buscar</button>
+    </div>
+  </form>
+
 </div>
+
+<mat-autocomplete #auto="matAutocomplete">
+  <mat-option
+    #thenBlock
+    *ngFor="let street of filteredStreets | async"
+    [value]="street"
+  >
+    {{ street }}
+  </mat-option>
+</mat-autocomplete>

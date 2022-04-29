@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input'
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 
@@ -31,6 +32,7 @@ import { LoginSnackbarComponent } from './components/login-snackbar/login-snackb
 import { DishAddSnackbarComponent } from './components/dish-add-snackbar/dish-add-snackbar.component';
 import { DishDeleteSnackbarComponent } from './components/dish-delete-snackbar/dish-delete-snackbar.component';
 import { PaginatePipe } from './pipes/paginate.pipe';
+import { PricePipe } from './pipes/price.pipe';
 
 
 
@@ -49,7 +51,8 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     LoginSnackbarComponent,
     DishAddSnackbarComponent,
     DishDeleteSnackbarComponent,
-    PaginatePipe
+    PaginatePipe,
+    PricePipe
   ],
   imports: [
     BrowserModule,
@@ -65,7 +68,8 @@ import { PaginatePipe } from './pipes/paginate.pipe';
     MatInputModule,
     MatDialogModule,
     MatSnackBarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatMenuModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

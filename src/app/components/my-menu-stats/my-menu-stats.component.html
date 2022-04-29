@@ -4,7 +4,7 @@
         <div *ngIf="myRegularMenu.length || myVeganMenu.length; then healthBlock else elseBlock"></div>
             <ng-template #healthBlock>
                 <div ng-app="">
-                <p>{{(myVeganMenu[0].healthScore + myVeganMenu[1].healthScore + myRegularMenu[0].healthScore + myRegularMenu[1].healthScore) / (myVeganMenu.length + myRegularMenu.length)}}</p>
+                    <p>{{((myVeganMenu[0]?.healthScore + myVeganMenu[1]?.healthScore + myRegularMenu[0]?.healthScore + myRegularMenu[1]?.healthScore) / (myVeganMenu.length + myRegularMenu.length)).toFixed(2)}}</p>
                 </div>
             </ng-template>
             <ng-template #elseBlock><p>0</p></ng-template>
@@ -13,14 +13,14 @@
     <div class="info-container">
         <img src="../../../assets/icons/clock.svg"/>
         <div *ngIf="myRegularMenu.length || myVeganMenu.length; then timeBlock else elseBlock"></div>
-            <ng-template #timeBlock><p>{{(myRegularMenu[0].readyInMinutes + myRegularMenu[1].readyInMinutes + myVeganMenu[0].readyInMinutes + myVeganMenu[1].readyInMinutes) / (myVeganMenu.length + myRegularMenu.length)}}</p></ng-template>
+            <ng-template #timeBlock><p>{{(myRegularMenu[0]?.readyInMinutes + myRegularMenu[1]?.readyInMinutes + myVeganMenu[0]?.readyInMinutes + myVeganMenu[1]?.readyInMinutes) / (myVeganMenu.length + myRegularMenu.length)}}</p></ng-template>
             <ng-template #elseBlock><p>0</p></ng-template>
     </div>
 
     <div class="info-container">
         <img src="../../../assets/icons/price.svg"/>
         <div *ngIf="myRegularMenu.length || myVeganMenu.length; then priceBlock else elseBlock"></div>
-            <ng-template #priceBlock><p>{{((myRegularMenu[0]?.pricePerServing + myRegularMenu[1]?.pricePerServing + myVeganMenu[0]?.pricePerServing + myVeganMenu[1]?.pricePerServing) / (myVeganMenu.length + myRegularMenu.length)).toFixed(2)}}</p></ng-template>
+            <ng-template #priceBlock><p>{{(myRegularMenu[0]?.pricePerServing + myRegularMenu[1]?.pricePerServing + myVeganMenu[0]?.pricePerServing + myVeganMenu[1]?.pricePerServing | price).toFixed(2)}}</p></ng-template>
             <ng-template #elseBlock><p>0</p></ng-template>
     </div>
 </div>

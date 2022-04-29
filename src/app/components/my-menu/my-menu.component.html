@@ -1,37 +1,55 @@
-<div *ngIf="myVeganMenu.length">
+<div class="vegan-menu" *ngIf="myVeganMenu.length">
+  <h2 class="myMenu-Title">My Vegan Choices</h2>
+  <div class="vegan-list">
     <div *ngFor="let dish of myVeganMenu">
         <section class="dish-container">
-            <img class="dish-img" src={{dish.image}} alt="spaghetti dish"/>
-            <h3 class="dish-title">{{dish.title}}</h3>
+            <img
+            class="dish-img"
+            src="{{ dish.image }}"
+            alt="{{ dish.title }}"
+            (click)="showModalDish(this.dish)"
+            />
+            <h3 class="dish-title">{{ dish.title }}</h3>
             <div class="dish-info">
-                <p>Health Score: {{dish.healthScore}}</p>
-                <p>Price Per Serving: {{dish.pricePerServing}}</p>
-                <p>Max Ready Time: {{dish.readyInMinutes}} minutes</p>
-                <p>Vegetariano: {{dish.vegan}}</p>
-            </div>  
+            <p>Health Score: {{ dish.healthScore }}</p>
+            <p>Price Per Serving: {{ dish.pricePerServing | price }}</p>
+            <p>Max Ready Time: {{ dish.readyInMinutes }} minutes</p>
+            <p>Vegan: {{ dish.vegan }}</p>
+            </div>
             <div class="dish-actions">
-                <a (click)="showModalDish(this.dish)"><img src="../../../assets/icons/info.svg"  alt="info action"/></a>
-                <a (click)="deleteDish(this.dish)"><img src="../../../assets/icons/add.svg"  alt="add action"/></a>
+            <button class="delete-button" (click)="deleteDish(this.dish)">
+                Delete Selection
+            </button>
             </div>
         </section>
     </div>
 </div>
+</div>
 
-<div *ngIf="myRegularMenu.length">
-    <div *ngFor="let dish of myRegularMenu">
-        <section class="dish-container">
-            <img class="dish-img" src={{dish.image}} alt="spaghetti dish"/>
-            <h3 class="dish-title">{{dish.title}}</h3>
-            <div class="dish-info">
-                <p>Health Score: {{dish.healthScore}}</p>
-                <p>Price Per Serving: {{dish.pricePerServing}}</p>
-                <p>Max Ready Time: {{dish.readyInMinutes}} minutes</p>
-                <p>Vegetariano: {{dish.vegan}}</p>
-            </div>  
-            <div class="dish-actions">
-                <a (click)="showModalDish(this.dish)"><img src="../../../assets/icons/info.svg"  alt="info action"/></a>
-                <a (click)="deleteDish(this.dish)"><img src="../../../assets/icons/add.svg"  alt="add action"/></a>
-            </div>
-        </section>
+<div class="regular-menu" *ngIf="myRegularMenu.length">
+  <h2 class="myMenu-Title">My Regular Choices</h2>
+  <div class="regular-list">
+    <div class="regular-list" *ngFor="let dish of myRegularMenu">
+      <section class="dish-container">
+        <img
+          class="dish-img"
+          src="{{ dish.image }}"
+          (click)="showModalDish(this.dish)"
+          alt="{{ dish.title }}"
+        />
+        <h3 class="dish-title">{{ dish.title }}</h3>
+        <div class="dish-info">
+          <p>Health Score: {{ dish.healthScore }}</p>
+          <p>Price Per Serving: {{ dish.pricePerServing | price }}</p>
+          <p>Max Ready Time: {{ dish.readyInMinutes }} minutes</p>
+          <p>Vegetariano: {{ dish.vegan }}</p>
+        </div>
+        <div class="dish-actions">
+          <button class="delete-button" (click)="deleteDish(this.dish)">
+            Delete Selection
+          </button>
+        </div>
+      </section>
     </div>
+  </div>
 </div>
