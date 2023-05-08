@@ -16,7 +16,7 @@ export class LoggedGuard implements CanActivate {
 
       if(token){
         this.router.navigate(['/home']);
-        return false;
+        return true;
       }
       else{
         
